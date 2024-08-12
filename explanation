@@ -1,0 +1,94 @@
+1. Technologies Used
+
+- Backend: Node.js, Express.js, MySQL
+- Frontend: HTML, EJS (Embedded JavaScript), CSS
+- Authentication: Passport.js, bcrypt.js
+- Version Control: Git, GitHub
+- Public API Integration: Node-fetch
+
+
+2. Entity Relationship Diagram
+
++-------------+          +--------------+
+|  Customer   |          |   Booking    |
++-------------+          +--------------+
+| customer_id | <--------| booking_number|
+| name        | 1     n  | date         |
+| address     |          | time         |
+| membership_type        | customer_id  |
+| guest_passes           | activty_type |
++-------------+          +--------------+
+
+
+3. Tables
+
+3.1. Users
+mysql> DESCRIBE Users;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| user_id  | int(11)      | NO   | PRI | NULL    | auto_increment |
+| username | varchar(100) | NO   | UNI | NULL    |                |
+| password | varchar(255) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+
+user_id (Primary Key): Unique identifier for each user.
+username: Username of the user.
+password: Hashed password for authentication.
+
+3.2. Customer
+mysql> DESCRIBE Customer;
++-----------------+--------------------------------+------+-----+---------+----------------+
+| Field           | Type                           | Null | Key | Default | Extra          |
++-----------------+--------------------------------+------+-----+---------+----------------+
+| customer_id     | int(11)                        | NO   | PRI | NULL    | auto_increment |
+| name            | varchar(100)                   | NO   |     | NULL    |                |
+| address         | varchar(255)                   | NO   |     | NULL    |                |
+| membership_type | enum('bronze','silver','gold') | NO   |     | NULL    |                |
+| guest_passes    | int(11)                        | YES  |     | 3       |                |
++-----------------+--------------------------------+------+-----+---------+----------------+
+customer_id (Primary Key): Unique identifier for each customer.
+name: The name of the customer.
+address: The address of the customer.
+membership_type: The type of membership (bronze, silver, gold).
+guest_passes: Number of available guest passes.
+
+
+3.3. Booking
+mysql> DESCRIBE Booking;
++----------------+--------------------+------+-----+---------+----------------+
+| Field          | Type               | Null | Key | Default | Extra          |
++----------------+--------------------+------+-----+---------+----------------+
+| booking_number | int(11)            | NO   | PRI | NULL    | auto_increment |
+| date           | date               | NO   |     | NULL    |                |
+| time           | time               | NO   |     | NULL    |                |
+| customer_id    | int(11)            | YES  | MUL | NULL    |                |
+| activity_type  | enum('gym','swim') | NO   |     | NULL    |                |
++----------------+--------------------+------+-----+---------+----------------+
+
+booking_number (Primary Key): Unique identifier for each booking.
+date: Date of the booking.
+time: Time of the booking.
+customer_id (Foreign Key): The customer associated with the booking.
+activty_type: The type of activity booked (gym or swim).
+
+
+4. Features
+
+4.1 Public API Integration
+    Visit /public-api to view data fetched from a public API.
+
+4.2 Public API Integration
+    Visit /public-api to view data fetched from a public API.
+
+4.3 Security Considerations
+    Password Hashing: User passwords are securely hashed using bcrypt.
+    Authentication: The application uses Passport.js for secure user authentication.
+
+4.4 API Usage
+    GET /api/customers: Retrieve a list of all customers.
+    GET /api/bookings: Retrieve a list of all bookings.
+
+4.5 Public API Integration: 
+    The application fetches and displays data from an external API using node-fetch.
+
