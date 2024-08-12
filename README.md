@@ -3,14 +3,14 @@ This is my github repository for Database and Web coursework.
 
 <How to set up Fit_Kwit>
 
-  1. Prerequisites
+ 1. Prerequisites
      
-     1.1 Install Node.js and npm
+  1.1 Install Node.js and npm
 
-sudo apt-get update
-sudo apt-get install nodejs npm -y
+  sudo apt-get update
+  sudo apt-get install nodejs npm -y
 
-    1.2. Install MySQL
+  1.2. Install MySQL
 
 sudo apt-get install mysql-server -y
 sudo mysql_secure_installation
@@ -18,13 +18,13 @@ mysql -u root -p
 CREATE DATABASE fit_kwick;
 exit
 
-    1.3. Install Git
+  1.3. Install Git
 
 sudo apt-get install git -y
 git --version
 
   
-2. Project Setup
+  2. Project Setup
    
   2.1. clone this repo
 
