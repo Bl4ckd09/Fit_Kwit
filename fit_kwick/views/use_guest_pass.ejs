@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Use Guest Pass</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <h1>Use Guest Pass</h1>
+    <p>Are you sure you want to use a guest pass?</p>
+
+    <form action="/customers/<%= customer_id %>/use_guest_pass" method="POST">
+        <button type="submit">Use Guest Pass</button>
+        <a href="/customers">Cancel</a>
+    </form>
+</body>
+</html>
+

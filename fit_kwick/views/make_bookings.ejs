@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a Booking</title>
+</head>
+<body>
+    <h1>Make a Booking</h1>
+    
+    <form action="/bookings/add" method="POST">
+        <div>
+            <label for="customer_id">Customer:</label>
+            <select name="customer_id" id="customer_id" required>
+                <% customers.forEach(function(customer) { %>
+                    <option value="<%= customer.customer_id %>"><%= customer.name %></option>
+                <% }); %>
+            </select>
+        </div>
+        <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+        <div>
+            <label for="activity_type">Activity Type:</label>
+            <input type="text" id="activity_type" name="activity_type" required>
+        </div>
+        <div>
+            <button type="submit">Make Booking</button>
+        </div>
+    </form>
+
+</body>
+</html>
+

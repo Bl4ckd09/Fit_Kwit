@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to Fit Kwick</h1>
+    <nav>
+        <ul>
+            <li><a href="/customers">List Customers</a></li>
+            <li><a href="/add-customers">Add Customer</a></li>
+            <li><a href="/add-bookings">Make a Booking</a></li>
+            <li><a href="/delete_bookings">Delete a Booking</a></li>
+            <li><a href="/use_guest_pass">Use a Guest Pass</a></li>
+            <li><a href="/about">About Us</a></li>
+            <% if (req.isAuthenticated()) { %>
+                <li><a href="/logout">Logout</a></li>
+            <% } else { %>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            <% } %>
+        </ul>
+    </nav>
+<form action="/search" method="GET">
+    <input type="text" name="q" placeholder="Search customers...">
+    <button type="submit">Search</button>
+</form>
+</body>
+</html>
+

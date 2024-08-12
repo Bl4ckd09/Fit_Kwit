@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <% if (customers.length > 0) { %>
+        <ul>
+            <% customers.forEach(customer => { %>
+                <li><%= customer.name %> - <%= customer.membership_type %></li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No customers found</p>
+    <% } %>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+

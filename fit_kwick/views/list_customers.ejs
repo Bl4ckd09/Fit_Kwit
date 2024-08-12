@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Customers</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <h1>Customers</h1>
+
+    <% if (customers.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Membership Type</th>
+                    <th>Guest Passes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% customers.forEach(customer => { %>
+                    <tr>
+                        <td><%= customer.customer_id %></td>
+                        <td><%= customer.name %></td>
+                        <td><%= customer.address %></td>
+                        <td><%= customer.membership_type %></td>
+                        <td><%= customer.guest_passes %></td>
+                        <td>
+                            <form action="/use_guest_pass" method="GET">
+                                <button type="submit">Use Guest Pass</button>
+                            </form>
+                            <a href="/bookings/<%= customer.customer_id %>" method="GET">View Bookings</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No customers found.</p>
+    <% } %>
+
+    <a href="/">Home</a>
+</body>
+</html>
+
