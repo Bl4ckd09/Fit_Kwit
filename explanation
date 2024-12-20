@@ -77,18 +77,12 @@ activty_type: The type of activity booked (gym or swim).
 
 4.1 Public API Integration
     Visit /public-api to view data fetched from a public API.
+    The application fetches and displays data from an external API using node-fetch.
 
-4.2 Public API Integration
-    Visit /public-api to view data fetched from a public API.
-
-4.3 Security Considerations
+4.2 Security Considerations
     Password Hashing: User passwords are securely hashed using bcrypt.
     Authentication: The application uses Passport.js for secure user authentication.
 
 4.4 API Usage
     GET /api/customers: Retrieve a list of all customers.
     GET /api/bookings: Retrieve a list of all bookings.
-
-4.5 Public API Integration: 
-    The application fetches and displays data from an external API using node-fetch.
-
